@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>#jsoxford</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style type="text/css">
+        h1 {font-size: 4em;}
+        dt, dd {float:left;}
+        .container {margin-top:10px;}
+        .messages-container-outer {
+            height: 95%;
+            overflow-x: scroll;
+        }
+
+        .messages-container-outer::-webkit-scrollbar {
+            width:4px;
+        }
+        
+        .messages-container-outer::-webkit-scrollbar-thumb {
+            background: #ccc;
+        }
+
+        .messages-container-inner {
+            width: 98%;
+        }
+
+        .message {
+/*            width: 95%;
+            background: #f3df49;
+            padding: 20px 10px;
+            margin: 15px 0; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <h1>#jsoxford</h1>
+                <h2>on irc.freenode.net</h2>  
+            </div>
+            <div class="span8 messages-container-outer">
+                <div class="messages-container-inner">
+                    <dl data-bind="foreach: messages">
+                        <div class="well clearfix message">
+                            <dt><span data-bind="text: name"></span> <span data-bind="text: time"></span></dt>
+                            <dd><span data-bind="text: text"></span></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+    </div>  
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.1.0/knockout-min.js"></script>
+    <script src="pouchdb-nightly.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
