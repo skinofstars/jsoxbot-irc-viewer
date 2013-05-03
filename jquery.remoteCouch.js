@@ -71,6 +71,14 @@
             );
         },
 
+        openDoc: function(docId, options) {
+            return _getData({
+                path: settings.host + settings.db + '/' + docId
+            }, function(data){
+                return data;
+            })
+        },
+
         // triggers a document event that data has updated
         longpoll: function(database, last_seq) {
             var url = settings.host + database + "/_changes?feed=longpoll";
@@ -90,6 +98,22 @@
                     }
                     // And set up the re-run of the fetch query.
                     $.remoteCouch.longpoll(database, data.last_seq);
+                }
+            })
+        },
+
+        changes: function(database, last_seq) {
+            var url = settings.host + database + "/_changes";
+            // If we don't have a sequence number, then see where we are up to.
+            if (last_seq) {
+                url = url + "&since=" + last_seq;
+            }
+            return $.ajax({
+                type: "GET",
+                url: url,
+                dataType: 'jsonp',
+                success: function(data) {
+                    return data;
                 }
             })
         }

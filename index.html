@@ -4,7 +4,7 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
     <style type="text/css">
         h1 {font-size: 4em;}
-        dt, dd {float:left;}
+        /*dt, dd {float:left;}*/
         .container {margin-top:10px;}
         .messages-container-outer {
             height: 95%;
@@ -35,14 +35,14 @@
     <div class="container">
         <div class="row">
             <div class="span4">
-                <h1>#jsoxford</h1>
+                <h1 data-bind="text: channel">#jsoxford</h1>
                 <h2>on irc.freenode.net</h2>  
             </div>
             <div class="span8 messages-container-outer">
                 <div class="messages-container-inner">
                     <dl data-bind="foreach: messages">
                         <div class="well clearfix message">
-                            <dt><span data-bind="text: name"></span> <span data-bind="text: time"></span></dt>
+                            <dt><span data-bind="text: name"></span> <span data-bind="attr: {title: time}" class="time"></span></dt>
                             <dd><span data-bind="text: text"></span></dd>
                         </div>
                     </dl>
@@ -54,8 +54,9 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.1.0/knockout-min.js"></script>
-    <script src="remoteCouch.jquery.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+    <script src="jquery.prettydate.js"></script>
+    <script src="jquery.remoteCouch.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
